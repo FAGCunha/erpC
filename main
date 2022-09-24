@@ -6,11 +6,45 @@ int cpf[SIZE];
 int op;
 void cadastro();
 void pesquisa();
-
+void lista();
 int main(void){
-	cadastro();
+	do{
+		system("cls");
+		printf("\n---MENU---\n1 - Cadastrar pessoa\n2 - Listar Cadastros\n3 - Pesquisar\n4 - Sair"); 
+		scanf("%d", &op);
+		switch(op){
+			case 1:
+				cadastro();
+				break;
+			
+			case 2:
+				lista();
+				break;
+			
+			case 3:
+				pesquisa();
+				break;
+			
+			case 4:
+				system("exit");
+				
+			default:
+				printf("opcao invalida!");
+				break;
+			}	
+	}while(op!=4);		
 }
 
+void lista(){
+	int i;
+	for(i=0;i<SIZE;i++){
+		if(cpf[i]>0){
+			printf("\nNome: %s\nE-mail: %s\nCPF: %d", nome[i], email[i], cpf[i]);	
+		}else{
+			break;
+		}
+	}
+}
 void cadastro(){
 	static int linha;
 	do{
